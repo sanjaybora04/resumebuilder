@@ -77,16 +77,16 @@ const SidebarResume = ({ details }: { details: ResumeType }) => {
           </View>
           <View>
             <Text style={[styles.sectionTitle,{color:'#fff'}]}>Links</Text>
-            {details.links.map((link) => (
-              <Link src={link.url} style={styles.link} key={link.url}>
+            {details.links.map((link,index) => (
+              <Link src={link.url} style={styles.link} key={index}>
                 {link.name}
               </Link>
             ))}
           </View>
           <View>
             <Text style={[styles.sectionTitle,{color:'#fff'}]}>Skills</Text>
-            {details.skills.map((skill) => (
-              <Text style={styles.skillChip} key={skill}>{skill}</Text>
+            {details.skills.map((skill,index) => (
+              <Text style={styles.skillChip} key={index}>{skill}</Text>
             ))}
           </View>
         </View>
@@ -102,8 +102,8 @@ const SidebarResume = ({ details }: { details: ResumeType }) => {
           {/* Work Experience Section */}
           <View style={styles.experienceContainer}>
             <Text style={styles.sectionTitle}>Work Experience</Text>
-            {details.experience.map((exp) => (
-              <View key={exp.title} style={{ marginBottom: 10 }}>
+            {details.experience.map((exp,index) => (
+              <View key={index} style={{ marginBottom: 10 }}>
                 <Text style={{ fontFamily: "Helvetica-Bold", marginBottom: 2 }}>
                   {exp.title}, {exp.company}
                 </Text>
@@ -116,8 +116,8 @@ const SidebarResume = ({ details }: { details: ResumeType }) => {
           {/* Education Section */}
           <View>
             <Text style={styles.sectionTitle}>Education</Text>
-            {details.education.map((edu) => (
-              <View key={edu.title} style={{ marginBottom: 10 }}>
+            {details.education.map((edu,index) => (
+              <View key={index} style={{ marginBottom: 10 }}>
                 <Text style={{ fontFamily: "Helvetica-Bold", marginBottom: 2 }}>
                   {edu.title}, {edu.school}
                 </Text>

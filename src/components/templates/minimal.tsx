@@ -74,8 +74,8 @@ const MinimalGridResume = ({ details }: { details: ResumeType }) => {
           <Text style={styles.profession}>{details.profession}</Text>
           <Text style={styles.contact}>{details.location} | {details.email}</Text>
           <View>
-            {details.links.map((link) => (
-              <Link key={link.url} src={link.url} style={styles.link}>
+            {details.links.map((link,index) => (
+              <Link key={index} src={link.url} style={styles.link}>
                 {link.name}
               </Link>
             ))}
@@ -96,8 +96,8 @@ const MinimalGridResume = ({ details }: { details: ResumeType }) => {
             <View style={styles.sectionContent}>
               <Text style={styles.sectionTitle}>Skills</Text>
               <View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-              {details.skills.map((skill) => (
-                <Text key={skill} style={styles.skillChip}>{skill}</Text>
+              {details.skills.map((skill,index) => (
+                <Text key={index} style={styles.skillChip}>{skill}</Text>
               ))}
               </View>
             </View>
@@ -108,8 +108,8 @@ const MinimalGridResume = ({ details }: { details: ResumeType }) => {
             {/* Work Experience */}
             <View style={styles.sectionContent}>
               <Text style={styles.sectionTitle}>Work Experience</Text>
-              {details.experience.map((exp) => (
-                <View key={exp.title} style={{ marginBottom: 10 }}>
+              {details.experience.map((exp,index) => (
+                <View key={index} style={{ marginBottom: 10 }}>
                   <Text style={{ fontFamily: "Helvetica-Bold", marginBottom: 2 }}>
                     {exp.title}, {exp.company}
                   </Text>
@@ -122,8 +122,8 @@ const MinimalGridResume = ({ details }: { details: ResumeType }) => {
             {/* Education */}
             <View style={styles.sectionContent}>
               <Text style={styles.sectionTitle}>Education</Text>
-              {details.education.map((edu) => (
-                <View key={edu.title} style={{ marginBottom: 10 }}>
+              {details.education.map((edu,index) => (
+                <View key={index} style={{ marginBottom: 10 }}>
                   <Text style={{ fontFamily: "Helvetica-Bold", marginBottom: 2 }}>
                     {edu.title}, {edu.school}
                   </Text>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Link } from '@react-pdf/renderer';
 import { ResumeType } from '@/lib/types';
 
-
 const TheClassic = ({ details }: { details: ResumeType }) => {
   const styles = StyleSheet.create({
     page: {
@@ -52,8 +51,8 @@ const TheClassic = ({ details }: { details: ResumeType }) => {
         <Text>{details.profession}</Text>
         <Text>{details.location} | {details.email}</Text>
         <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
-          {details.links.map((link) => (
-            <View key={link.name} style={{ display: 'flex', flexDirection: 'row' }}>
+          {details?.links?.map((link,index) => (
+            <View key={index} style={{ display: 'flex', flexDirection: 'row' }}>
               <Link src={link.url} style={styles.link}>
                 {link.name}
               </Link>
@@ -68,8 +67,8 @@ const TheClassic = ({ details }: { details: ResumeType }) => {
         </View>
       </View>
       <View style={{display:"flex",flexDirection:"row",gap:2,justifyContent:"center"}}>
-        {details.skills.map((skill) => (
-          <Text key={skill} style={{backgroundColor:details.primaryColor,color:"#fff",padding:5,borderRadius:5}}>
+        {details.skills.map((skill,index) => (
+          <Text key={index} style={{backgroundColor:details.primaryColor,color:"#fff",padding:5,borderRadius:5}}>
             {skill}
           </Text>
         ))}
@@ -86,8 +85,8 @@ const TheClassic = ({ details }: { details: ResumeType }) => {
       {/* Work Experience Section */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>WORK EXPERIENCE</Text>
-        {details.experience.map((exp) => (
-          <View key={exp.company} style={styles.text}>
+        {details.experience.map((exp,index) => (
+          <View key={index} style={styles.text}>
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
               <Text style={{ fontFamily:"Helvetica-Bold",fontWeight: "bold" }}>
                 <Text style={{color:details.primaryColor}}>{exp.title}</Text>
@@ -107,8 +106,8 @@ const TheClassic = ({ details }: { details: ResumeType }) => {
       {/* Education Section */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>EDUCATION</Text>
-        {details.education.map((edu) => (
-          <View key={edu.school} style={styles.text}>
+        {details.education.map((edu,index) => (
+          <View key={index} style={styles.text}>
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
               <Text style={{ fontFamily:"Helvetica-Bold",fontWeight: "bold" }}>
                 <Text style={{color:details.primaryColor}}>{edu.title}</Text>
