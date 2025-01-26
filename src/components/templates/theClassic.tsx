@@ -53,7 +53,7 @@ const TheClassic = ({ details }: { details: ResumeType }) => {
         <Text>{details.location} | {details.email}</Text>
         <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
           {details.links.map((link) => (
-            <>
+            <View key={link.name} style={{ display: 'flex', flexDirection: 'row' }}>
               <Link src={link.url} style={styles.link}>
                 {link.name}
               </Link>
@@ -62,14 +62,14 @@ const TheClassic = ({ details }: { details: ResumeType }) => {
                   {" "}|{" "}
                 </Text>
               )}
-            </>
+            </View>
           )
           )}
         </View>
       </View>
       <View style={{display:"flex",flexDirection:"row",gap:2,justifyContent:"center"}}>
         {details.skills.map((skill) => (
-          <Text style={{backgroundColor:details.primaryColor,color:"#fff",padding:5,borderRadius:5}}>
+          <Text key={skill} style={{backgroundColor:details.primaryColor,color:"#fff",padding:5,borderRadius:5}}>
             {skill}
           </Text>
         ))}
@@ -87,7 +87,7 @@ const TheClassic = ({ details }: { details: ResumeType }) => {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>WORK EXPERIENCE</Text>
         {details.experience.map((exp) => (
-          <View style={styles.text}>
+          <View key={exp.company} style={styles.text}>
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
               <Text style={{ fontFamily:"Helvetica-Bold",fontWeight: "bold" }}>
                 <Text style={{color:details.primaryColor}}>{exp.title}</Text>
@@ -108,7 +108,7 @@ const TheClassic = ({ details }: { details: ResumeType }) => {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>EDUCATION</Text>
         {details.education.map((edu) => (
-          <View style={styles.text}>
+          <View key={edu.school} style={styles.text}>
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
               <Text style={{ fontFamily:"Helvetica-Bold",fontWeight: "bold" }}>
                 <Text style={{color:details.primaryColor}}>{edu.title}</Text>
