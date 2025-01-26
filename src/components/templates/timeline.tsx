@@ -83,12 +83,20 @@ const CenteredTimelineResume = ({ details }: { details: ResumeType }) => {
                     <Text style={styles.name}>{details.name}</Text>
                     <Text style={styles.profession}>{details.profession}</Text>
                     <Text style={styles.contact}>{details.location} | {details.email}</Text>
-                    <View>
-                        {details.links.map((link,index) => (
-                            <Link key={index} src={link.url} style={styles.link}>
-                                {link.name}
-                            </Link>
-                        ))}
+                    <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginTop:2 }}>
+                        {details?.links?.map((link, index) => (
+                            <View key={index} style={{ display: 'flex', flexDirection: 'row' }}>
+                                <Link src={link.url} style={styles.link}>
+                                    {link.name}
+                                </Link>
+                                {details.links.indexOf(link) !== details.links.length - 1 && (
+                                    <Text>
+                                        {" "}|{" "}
+                                    </Text>
+                                )}
+                            </View>
+                        )
+                        )}
                     </View>
                 </View>
 
@@ -105,7 +113,7 @@ const CenteredTimelineResume = ({ details }: { details: ResumeType }) => {
                     <View style={styles.timelineItem}>
                         <View style={styles.timelineDot}></View>
                         <Text style={styles.sectionTitle}>Work Experience</Text>
-                        {details.experience.map((exp,index) => (
+                        {details.experience.map((exp, index) => (
                             <View key={index} style={{ marginBottom: 10 }}>
                                 <Text style={{ fontFamily: "Helvetica-Bold", marginBottom: 2 }}>
                                     {exp.title}, {exp.company}
@@ -120,7 +128,7 @@ const CenteredTimelineResume = ({ details }: { details: ResumeType }) => {
                     <View style={styles.timelineItem}>
                         <View style={styles.timelineDot}></View>
                         <Text style={styles.sectionTitle}>Education</Text>
-                        {details.education.map((edu,index) => (
+                        {details.education.map((edu, index) => (
                             <View key={index} style={{ marginBottom: 10 }}>
                                 <Text style={{ fontFamily: "Helvetica-Bold", marginBottom: 2 }}>
                                     {edu.title}, {edu.school}
@@ -136,7 +144,7 @@ const CenteredTimelineResume = ({ details }: { details: ResumeType }) => {
                 <View style={styles.skillsContainer}>
                     <Text style={styles.sectionTitle}>Skills</Text>
                     <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-                        {details.skills.map((skill,index) => (
+                        {details.skills.map((skill, index) => (
                             <Text key={index} style={styles.skillChip}>{skill}</Text>
                         ))}
                     </View>

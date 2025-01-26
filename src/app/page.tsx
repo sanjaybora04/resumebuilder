@@ -1,29 +1,25 @@
 'use client'
-import TheClassicResume from "@/components/templates/theClassic";
-import SidebarResume from "@/components/templates/sidebar";
-import TimelineResume from "@/components/templates/timeline";
-import MinimalResume from "@/components/templates/minimal";
 
 import { Input } from "@/components/ui/input";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { useAtom } from "jotai";
-// import PdfViewer from "@/components/pdfviewer";
+import { useAtom, useAtomValue } from "jotai";
 import dynamic from "next/dynamic";
 const PdfViewer = dynamic(() => import("@/components/pdfviewer"), {
   ssr: false, // Disable SSR
 });
-import { detailsAtom } from "@/lib/atoms";
+import { detailsAtom, selectedTemplateAtom } from "@/lib/atoms";
 import ColorPicker from "@/components/ui/colorpicker";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Check, ChevronDown, ChevronUp, Fullscreen, Trash2 } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Label } from "@/components/ui/label";
-const DEFAULT_COLORS = ["#bc6800", "#2ca500", "#004cbf", "#8200b6", "#b4005d"];
+import { Check, ChevronDown, ChevronUp, Fullscreen, Plus, Trash2 } from "lucide-react";
+import { useState } from "react";
+import templates from "@/lib/templates";
+const DEFAULT_COLORS = ["#004cbf","#bc6800", "#00956e", "#93009e", "#b4005d"];
 
 export default function Home() {
   const [details, setDetails] = useAtom(detailsAtom)
+  const [selectedTemplate,setSelectedTemplate] = useAtom(selectedTemplateAtom)
 
   const [primaryColours, setPrimaryColours] = useState<string[]>([
     ...DEFAULT_COLORS,
@@ -140,7 +136,7 @@ export default function Home() {
                 links.push({ name: "", url: "" });
                 return { ...prev, links };
               });
-            }}>Add Link</Button>
+            }}><Plus/>Add Link</Button>
           </div>
         </div>
         <div>
@@ -194,7 +190,7 @@ export default function Home() {
                 skills.push("");
                 return { ...prev, skills };
               });
-            }}>Add Skill</Button>
+            }}><Plus/>Add Skill</Button>
           </div>
         </div>
         <div>
@@ -283,7 +279,7 @@ export default function Home() {
                 experience.push({title:'',company:'',startDate:'',endDate:'',description:''});
                 return { ...prev, experience };
               });
-            }}>Add Experience</Button>
+            }}><Plus/>Add Experience</Button>
           </div>
         </div>
 
@@ -368,26 +364,18 @@ export default function Home() {
                 education.push({title:'',school:'',startDate:'',endDate:'',description:''});
                 return { ...prev, education };
               });
-            }}>Add Education</Button>
+            }}><Plus/>Add Education</Button>
           </div>
         </div>
 
-        {/* <div className="flex gap-2 flex-wrap justify-around my-5">
-
-          <div className="w-80 aspect-[3/4] shadow-lg overflow-auto">
-            <PdfViewer key={JSON.stringify(details)} Resume={TheClassicResume} width={300} />
+            <div className="font-semibold">Templates</div>
+        <div className="flex gap-2 flex-wrap justify-around my-5">
+          {templates.map((t,index)=>
+          <div onClick={()=>{setSelectedTemplate(index),console.log(index)}} className="w-80 aspect-[3/4] shadow-lg overflow-auto">
+            <PdfViewer key={details.links.length+details.skills.length+details.experience.length+details.education.length+selectedTemplate} Resume={t.component} width={300} />
           </div>
-          <div className="w-80 aspect-[3/4] shadow-lg overflow-auto">
-            <PdfViewer key={JSON.stringify(details)} Resume={SidebarResume} width={300} />
-          </div>
-          <div className="w-80 aspect-[3/4] shadow-lg overflow-auto">
-            <PdfViewer key={JSON.stringify(details)} Resume={TimelineResume} width={300} />
-          </div>
-          <div className="w-80 aspect-[3/4] shadow-lg overflow-auto">
-            <PdfViewer key={JSON.stringify(details)} Resume={MinimalResume} width={300} />
-          </div>
-
-        </div> */}
+          )}
+        </div>
 
       </div>
 
@@ -396,11 +384,11 @@ export default function Home() {
           <Button className="md:hidden fixed bottom-5 right-5">View <Fullscreen className="w-14 h-14"/></Button>
         </DrawerTrigger>
         <DrawerContent className="className='w-full h-[80vh] flex flex-col gap-2 overflow-auto'">
-          <PdfViewer key={JSON.stringify(details)} Resume={TheClassicResume} main />
+          <PdfViewer main key={details.links.length+details.skills.length+details.experience.length+details.education.length+selectedTemplate} Resume={templates[selectedTemplate].component} />
         </DrawerContent>
       </Drawer>
-      <div className="sticky top-0 hidden md:flex md:w-1/2 max-w-2xl mx-auto h-screen overflow-auto border flex-col xl:items-center">
-        <PdfViewer key={JSON.stringify(details)} Resume={TheClassicResume} main />
+      <div className="sticky top-0 hidden md:flex md:w-1/2 h-screen border">
+        <PdfViewer main key={details.links.length+details.skills.length+details.experience.length+details.education.length+selectedTemplate} Resume={templates[selectedTemplate].component} />
       </div>
       {/* <iframe src={instance.url!} className="w-full md:w-1/2 h-screen"/> */}
     </div>
