@@ -26,7 +26,10 @@ export default function Home() {
   ]);
 
   return (
-    <div className="md:flex">
+    <div>
+    <div>
+      {/* <div className="h-20 bg-gray-500 w-full">Header</div> */}
+    <div className="md:flex sticky top-0">
       <div className="md:w-1/2 space-y-5 p-5">
         <div className="flex gap-[0.5rem] md:gap-[0.5vw] my-[0.5rem] md:mt-[0.5vw]">
 
@@ -390,6 +393,9 @@ export default function Home() {
       <div className="sticky top-0 hidden md:flex md:w-1/2 h-screen border">
         <PdfViewer main key={details.links.length+details.skills.length+details.experience.length+details.education.length+selectedTemplate} Resume={templates[selectedTemplate].component} />
       </div>
+    </div>
+    </div>
+    {/* <div className="bg-gray-500 h-28">footer</div> */}
     </div>
   );
 }

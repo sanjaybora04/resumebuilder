@@ -1,7 +1,8 @@
 import { atom } from "jotai";
+import { atomWithStorage} from 'jotai/utils'
 import { ResumeType } from "./types";
 
-export const detailsAtom = atom<ResumeType>({
+export const detailsAtom = atomWithStorage<ResumeType>('details',{
   primaryColor: "#004cbf",
   name: "SANJAY BORA",
   profession: "Full Stack Developer",
