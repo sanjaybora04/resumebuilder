@@ -390,7 +390,6 @@ export default function Home() {
       <div className="sticky top-0 hidden md:flex md:w-1/2 h-screen border">
         <PdfViewer main key={details.links.length+details.skills.length+details.experience.length+details.education.length+selectedTemplate} Resume={templates[selectedTemplate].component} />
       </div>
-      {/* <iframe src={instance.url!} className="w-full md:w-1/2 h-screen"/> */}
     </div>
   );
 }
