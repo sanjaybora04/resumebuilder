@@ -28,7 +28,7 @@ export default function EditorInputs() {
     return (
         <>
             <div className="h-8 border-b sticky top-0 flex justify-between gap-2 z-10 bg-white mb-5">
-                <button onClick={() => setEditOpen(!editOpen)} className="flex gap-2 text-lg font-semibold hover:underline"><Edit />Edit<ChevronRight className={cn('duration-300', editOpen ? 'rotate-90' : 'rotate-0')} /></button>
+                <button onClick={() => setEditOpen(!editOpen)} className="editbutton flex gap-2 text-lg font-semibold hover:underline"><Edit />Edit<ChevronRight className={cn('duration-300', editOpen ? 'rotate-90' : 'rotate-0')} /></button>
                 <button onClick={()=>reset()} className="hover:underline">Reset</button>
             </div>
             <div className={cn("duration-300 transition-all overflow-clip space-y-5", editOpen ? 'max-h-full' : 'max-h-0')}>

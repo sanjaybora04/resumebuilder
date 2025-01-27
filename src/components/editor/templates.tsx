@@ -9,7 +9,7 @@ export default function TemplateGrid() {
     return (
         <>
             <div className="font-semibold text-xl text-center mt-5">Select Template</div>
-            <div className="flex gap-2 flex-wrap justify-around my-5">
+            <div className="templates flex gap-2 flex-wrap justify-around my-5">
                 {templates.map((t, index) =>
                 <div key={index} className="relative">
                     <div className="p-2 text-center bg-black text-white">{t.name}</div>

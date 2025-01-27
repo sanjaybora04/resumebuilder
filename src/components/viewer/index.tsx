@@ -18,13 +18,13 @@ export default function Viewer() {
         <>
             <Drawer>
                 <DrawerTrigger asChild>
-                    <Button className="md:hidden fixed bottom-5 right-5">View <Fullscreen className="w-14 h-14" /></Button>
+                    <Button className="viewe md:hidden fixed bottom-5 right-5">View <Fullscreen className="w-14 h-14" /></Button>
                 </DrawerTrigger>
                 <DrawerContent className="className='w-full h-[80vh] flex flex-col gap-2'">
                     <PdfViewer key={details.links.length + details.skills.length + details.experience.length + details.education.length + selectedTemplate} Resume={templates[selectedTemplate].component} />
                 </DrawerContent>
             </Drawer>
-            <div className="sticky top-0 hidden md:flex md:w-1/2 h-screen border">
+            <div className="viewer sticky top-0 hidden md:flex md:w-1/2 h-screen border">
                 <PdfViewer key={details.links.length + details.skills.length + details.experience.length + details.education.length + selectedTemplate} Resume={templates[selectedTemplate].component} />
             </div>
         </>

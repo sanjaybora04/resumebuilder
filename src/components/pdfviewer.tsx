@@ -27,7 +27,7 @@ export default function PdfViewer({ Resume }: { Resume: any }) {
     return (
         <Document file={instance.url} onLoadSuccess={onPdfLoad} className='relative w-full h-full flex flex-col gap-2 overflow-auto'>
           <div className="sticky top-0 left-0 z-[999] w-full p-2 bg-primary text-white flex justify-center">
-                <a href={instance?.url!} target="_blank"  className="flex gap-2 border border-white rounded-lg p-1">
+                <a href={instance?.url!} target="_blank"  className="download flex gap-2 border border-white rounded-lg p-1">
                     Open / Download
                 <ArrowUpRightFromSquare/>
                 </a>
