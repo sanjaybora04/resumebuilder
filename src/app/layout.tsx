@@ -16,6 +16,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Free Resume Builder",
   description: "Choose from a variety of resume templates to create your own resume.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
+  openGraph:{
+    images:["/images/thumbnail.png"],
+    url:'/'
+  },
+  twitter:{
+    card:'summary_large_image',
+    images:["/images/thumbnail.png"]
+  }
+  
 };
 
 export default function RootLayout({

@@ -9,25 +9,25 @@ const templates = [
     {
         name: "The Classic",
         component: TheClassic,
-        image:'/images/theclassic.png',
+        image:'/images/templates/theclassic.png',
         tags: []
     },
     {
         name: 'Sidebar',
         component: SidebarResume,
-        image:'/images/sidebar.png',
+        image:'/images/templates/sidebar.png',
         tags: []
     },
     {
         name: 'Timeline',
         component: CenteredTimelineResume,
-        image:'/images/timeline.png',
+        image:'/images/templates/timeline.png',
         tags: []
     },
     {
         name: 'Minimal',
         component: MinimalGridResume,
-        image:'/images/minimal.png',
+        image:'/images/templates/minimal.png',
         tags: []
     }
 ]
