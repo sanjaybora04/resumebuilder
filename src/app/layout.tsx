@@ -47,18 +47,18 @@ export default function RootLayout({
         `}} />
         {/* End Google Tag Manager */}
         {/* Adsense */}
-        {/* <meta name="google-adsense-account" content="ca-pub-1622367531310821"></meta>
+        <meta name="google-adsense-account" content="ca-pub-1622367531310821"></meta>
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622367531310821"
           crossOrigin='anonymous'
           strategy='lazyOnload'
-        /> */}
+        />
         {/* Mediavine journey */}
-        <script data-grow-initializer="" dangerouslySetInnerHTML={{
+        {/* <script data-grow-initializer="" dangerouslySetInnerHTML={{
           __html: `
                   !(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZToxMzM1OGUzYi05NzkzLTQyODgtYTJkMi00MGI0YTQ4ODAzZDg=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();
-        `}} />
+        `}} /> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
