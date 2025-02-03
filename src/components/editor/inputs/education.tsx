@@ -12,7 +12,7 @@ export default function Education() {
     const [eduOpen,setEduOpen] = useState(false)
     return (
         <div>
-            <div onClick={() => setEduOpen(!eduOpen)} className="sticky top-8 font-semibold h-7 z-9 border-b mb-2 bg-white flex gap-2"><GraduationCap/>Work Experience<ChevronRight className={cn('duration-300', eduOpen ? 'rotate-90' : 'rotate-0')} /></div>
+            <div onClick={() => setEduOpen(!eduOpen)} className="sticky top-8 font-semibold h-7 z-9 border-b mb-2 bg-white flex gap-2"><GraduationCap/>Education<ChevronRight className={cn('duration-300', eduOpen ? 'rotate-90' : 'rotate-0')} /></div>
             <div className={cn("duration-300 transition-all overflow-clip space-y-3", eduOpen ? 'max-h-full' : 'max-h-0')}>
                 {
                     details.education.map((edu, index) => (
