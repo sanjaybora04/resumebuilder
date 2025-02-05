@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div className="flex gap-2 justify-center">
           <a href="https://linkedin.com/in/sanjaybora04" target="_blank"><Linkedin className="bg-black text-white p-1 rounded-lg cursor-pointer hover:scale-110 duration-300 w-8 h-8"/></a>
-          <a href="https://github.com/sanjaybora04" target="_blank"><Github className="bg-black text-white p-1 rounded-lg cursor-pointer hover:scale-110 duration-300 w-8 h-8"/></a>
+          <a href="https://github.com/sanjaybora04/resumebuilder" target="_blank"><Github className="bg-black text-white p-1 rounded-lg cursor-pointer hover:scale-110 duration-300 w-8 h-8"/></a>
           <a href="https://x.com/sanjaybora04" target="_blank"><Twitter className="bg-black text-white p-1 rounded-lg cursor-pointer hover:scale-110 duration-300 w-8 h-8"/></a>
 
         </div>

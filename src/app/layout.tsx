@@ -54,11 +54,6 @@ export default function RootLayout({
           crossOrigin='anonymous'
           strategy='lazyOnload'
         />
-        {/* Mediavine journey */}
-        {/* <script data-grow-initializer="" dangerouslySetInnerHTML={{
-          __html: `
-                  !(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZToxMzM1OGUzYi05NzkzLTQyODgtYTJkMi00MGI0YTQ4ODAzZDg=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();
-        `}} /> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
